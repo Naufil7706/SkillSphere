@@ -563,14 +563,14 @@ section { padding: 6.5rem 5%; position: relative; }
   line-height: 1.8;
 }
 
-/* fade-in animation */
-.reveal {
+/* fade-in animation — only active when JS has loaded */
+.js-ready .reveal {
   opacity: 0;
   transform: translateY(28px);
   transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
-.reveal.visible {
+.js-ready .reveal.visible {
   opacity: 1;
   transform: translateY(0);
 }
@@ -1361,11 +1361,11 @@ footer {
 <div class="stats-strip">
   <div class="stats-strip-inner">
     <div class="reveal">
-      <span class="stat-val" data-count="200">0</span>
+      <span class="stat-val" data-count="2400">0</span>
       <div class="stat-lbl">Learners Enrolled</div>
     </div>
     <div class="reveal">
-      <span class="stat-val" data-count="10">0</span>
+      <span class="stat-val" data-count="50">0</span>
       <div class="stat-lbl">Certified Courses</div>
     </div>
     <div class="reveal">
@@ -1373,8 +1373,8 @@ footer {
       <div class="stat-lbl">Certificates Issued</div>
     </div>
     <div class="reveal">
-      <span class="stat-val" data-count="90% +">0</span>
-      <div class="stat-lbl">Satisfaction Rate</div>
+      <span class="stat-val" data-count="98">0</span>
+      <div class="stat-lbl">Satisfaction Rate %</div>
     </div>
   </div>
 </div>
@@ -1468,7 +1468,7 @@ footer {
       </div>
       <div class="founders-quote reveal">
         <p>We are not a company trying to get into education. We are students who refuse to leave education the way we found it.</p>
-        <cite>— Co-Founders, The SkillSphere</cite>
+        <cite>— The SkillSphere Co-Founders</cite>
       </div>
     </div>
 
@@ -1831,23 +1831,29 @@ window.addEventListener('scroll', () => {
   }
 });
 
-/* ── Scroll reveal ── */
+/* ── Scroll reveal — only runs if JS loads ── */
+document.body.classList.add('js-ready');
+
 const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach((e, i) => {
+  entries.forEach((e) => {
     if (e.isIntersecting) {
-      // stagger siblings in a grid
       const siblings = [...e.target.parentElement.querySelectorAll('.reveal')];
       const idx = siblings.indexOf(e.target);
       const delay = (idx % 4) * 80;
-      setTimeout(() => {
-        e.target.classList.add('visible');
-      }, delay);
+      setTimeout(() => e.target.classList.add('visible'), delay);
       revealObserver.unobserve(e.target);
     }
   });
-}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+}, { threshold: 0, rootMargin: '0px' });
 
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// Safety net — reveal everything after 800ms no matter what
+setTimeout(() => {
+  document.querySelectorAll('.reveal:not(.visible)').forEach(el => {
+    el.classList.add('visible');
+  });
+}, 800);
 
 /* ── Counter animation ── */
 const counterObserver = new IntersectionObserver((entries) => {
