@@ -606,7 +606,7 @@ section { padding: 6.5rem 5%; position: relative; }
   position: absolute;
   top: 50%; left: 50%;
   transform: translate(-50%, -50%);
-  width: 110px; height: 110px;
+  width: 135px; height: 135px;
   border-radius: 50%;
   background: linear-gradient(135deg, var(--navy-3), var(--navy-5));
   border: 2px solid rgba(201,139,10,0.35);
@@ -619,8 +619,9 @@ section { padding: 6.5rem 5%; position: relative; }
 }
 
 .diag-center span {
+font-style: bold;
   font-family: 'Cormorant Garamond', serif;
-  font-size: 0.65rem;
+  font-size: 1.25rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -647,7 +648,7 @@ section { padding: 6.5rem 5%; position: relative; }
 
 .diag-node {
   position: absolute;
-  width: 80px; height: 80px;
+  width: 90px; height: 90px;
   border-radius: 50%;
   display: flex;
   flex-direction: column;
@@ -661,12 +662,12 @@ section { padding: 6.5rem 5%; position: relative; }
   text-align: center;
   border: 1px solid rgba(201,139,10,0.2);
   background: var(--navy-3);
-  transition: transform 0.3s;
+  transition: transform 0.8s;
 }
 
 .diag-node:hover { transform: scale(1.08); }
 .diag-node .dn-icon { font-size: 1.3rem; }
-.diag-node .dn-label { color: var(--muted); line-height: 1.3; }
+.diag-node .dn-label { color: var(--white); line-height: 1.3; }
 
 .dn-1 { top: 10%; left: 50%; transform: translate(-50%, 0); }
 .dn-2 { top: 50%; right:  2%; transform: translate(0, -50%); }
@@ -800,6 +801,15 @@ section { padding: 6.5rem 5%; position: relative; }
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: var(--gold);
+  margin-bottom: 0.9rem;
+}
+
+.founder-role2 {
+  font-size: 0.68rem;
+  font-weight: 650;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--blue);
   margin-bottom: 0.9rem;
 }
 
@@ -959,14 +969,11 @@ section { padding: 6.5rem 5%; position: relative; }
 }
 
 /* unique gradient per course category */
-.th-tech    { background: linear-gradient(140deg, #050f22 0%, #0c2557 60%, #1a3a80 100%); }
-.th-design  { background: linear-gradient(140deg, #120523 0%, #2d0d52 60%, #4a1580 100%); }
-.th-biz     { background: linear-gradient(140deg, #180a02 0%, #4a2208 60%, #7a3a0a 100%); }
-.th-mkt     { background: linear-gradient(140deg, #051208 0%, #0d3018 60%, #144d26 100%); }
+.th-beginner2    { background: linear-gradient(140deg, #050f22 0%, #0c2557 60%, #1a3a80 100%); }
+.th-inter     { background: linear-gradient(140deg, #180a02 0%, #4a2208 60%, #7a3a0a 100%); }
+.th-beginner     { background: linear-gradient(140deg, #051208 0%, #0d3018 60%, #144d26 100%); }
 .th-ai      { background: linear-gradient(140deg, #050e1a 0%, #0a2040 55%, #1a68d6 130%); }
-.th-finance { background: linear-gradient(140deg, #100505 0%, #300c0c 60%, #5a1010 100%); }
-.th-comm    { background: linear-gradient(140deg, #100510 0%, #2a083a 60%, #4a0f70 100%); }
-.th-photo   { background: linear-gradient(140deg, #050505 0%, #181818 60%, #2a2a2a 100%); }
+.th-hard { background: linear-gradient(140deg, #100505 0%, #300c0c 60%, #5a1010 100%); }
 
 .thumb-emoji { font-size: 2.8rem; position: relative; z-index: 1; }
 
@@ -993,14 +1000,12 @@ section { padding: 6.5rem 5%; position: relative; }
   border-radius: 3px;
 }
 
-.badge-tech    { background: rgba(26,104,214,0.28); color: #7ab8ff; border: 1px solid rgba(26,104,214,0.35); }
-.badge-design  { background: rgba(150,40,200,0.28); color: #d47aff; border: 1px solid rgba(150,40,200,0.35); }
-.badge-biz     { background: rgba(201,139,10,0.22); color: var(--gold-ll); border: 1px solid rgba(201,139,10,0.35); }
-.badge-mkt     { background: rgba(13,148,100,0.22); color: #4de6b0; border: 1px solid rgba(13,148,100,0.35); }
-.badge-ai      { background: rgba(26,104,214,0.22); color: #aad0ff; border: 1px solid rgba(26,104,214,0.3); }
-.badge-finance { background: rgba(200,50,50,0.22); color: #ff9090; border: 1px solid rgba(200,50,50,0.3); }
-.badge-new     { background: rgba(200,50,50,0.25); color: #ff8080; border: 1px solid rgba(200,50,50,0.3); }
-.badge-free    { background: rgba(13,148,100,0.25); color: #4de6b0; border: 1px solid rgba(13,148,100,0.3); }
+.badge-ai       { background: rgba(26,104,214,0.28); color: #7ab8ff; border: 1px solid rgba(26,104,214,0.35); }
+.badge-inter    { background: rgba(201,139,10,0.22); color: var(--gold-ll); border: 1px solid rgba(201,139,10,0.35); }
+.badge-beginner { background: rgba(13,148,100,0.22); color: #4de6b0; border: 1px solid rgba(13,148,100,0.35); }
+.badge-hard     { background: rgba(200,50,50,0.22); color: #ff9090; border: 1px solid rgba(200,50,50,0.3); }
+.badge-new      { background: rgba(200,50,50,0.25); color: #ff8080; border: 1px solid rgba(200,50,50,0.3); }
+.badge-free     { background: rgba(13,148,100,0.25); color: #4de6b0; border: 1px solid rgba(13,148,100,0.3); }
 
 .course-body { padding: 1.2rem 1.2rem 0; }
 
@@ -1409,7 +1414,7 @@ footer {
           </div>
           <div class="diag-node dn-4">
             <span class="dn-icon">🤝</span>
-            <span class="dn-label">Peer<br>Community</span>
+            <span class="dn-label">Peer<br>Group</span>
           </div>
         </div>
       </div>
@@ -1417,16 +1422,16 @@ footer {
       <!-- text (right) -->
       <div class="about-content reveal">
         <span class="section-kicker">About SkillSphere</span>
-        <h2 class="section-heading">Built by Students, <em style="font-style:italic;color:var(--gold-l)">For the World</em></h2>
+        <h2 class="section-heading">Built by CA Students, <em style="font-style:italic;color:var(--gold-l)">For CA Students</em></h2>
         <p style="color:var(--muted);font-size:.95rem;line-height:1.8;margin-bottom:.8rem">
-          We started SkillSphere because we were frustrated. Frustrated by courses that taught theory without practice. Frustrated by certificates employers didn't trust. Frustrated by the gap between what colleges teach and what the industry actually needs.
+          We started SkillSphere because we were frustrated. Frustrated by courses which taught theory without practice. Frustrated by certificates which the employers didn't trust. Frustrated by the gap between what books teach and what the industry actually needs.
         </p>
         <p style="color:var(--muted);font-size:.95rem;line-height:1.8">
-          So we built it ourselves — a platform run by students, shaped by real-world experience, and committed to one thing: helping the next generation of professionals get genuinely skilled and genuinely recognised for it.
+          So we built it ourselves — a platform run by CA students, shaped by real-world experience, and committed to one thing: helping the upcoming league of professionals get genuinely skilled and genuinely recognised for it.
         </p>
 
         <div class="about-mission">
-          "Education should be accessible, practical, and credible. SkillSphere exists to make all three a reality for every student."
+          "Education should be affordable, accessible, practical, and credible. SkillSphere exists to make all four a reality for every CA student."
         </div>
 
         <div class="about-pillars">
@@ -1438,7 +1443,7 @@ footer {
           <div class="pillar">
             <div class="pillar-icon">🔍</div>
             <h4>Verified Credentials</h4>
-            <p>Certificates employers can actually verify — instantly, publicly.</p>
+            <p>Certificates that employers can actually verify — instantly, publicly.</p>
           </div>
           <div class="pillar">
             <div class="pillar-icon">💡</div>
@@ -1448,7 +1453,7 @@ footer {
           <div class="pillar">
             <div class="pillar-icon">♾️</div>
             <h4>Always Growing</h4>
-            <p>New courses, new instructors, and new domains — every month.</p>
+            <p>New courses, new instructors, and new knowledge — updating regularly.</p>
           </div>
         </div>
       </div>
@@ -1478,7 +1483,8 @@ footer {
       <div class="founder-card reveal">
         <div class="founder-avatar">PG</div>
         <div class="founder-name">Priyanshi Goswami</div>
-        <div class="founder-role">CEO &amp; Co-Founder</div>
+        <div class="founder-role">CEO &amp; Founder</div>
+		<div class="founder-role2">CA Finalist, Secretary - NICASA Gurugram (25-26), Rank 1 - Motilal Nehru College, DU</div>
         <p class="founder-bio">
           The visionary driving SkillSphere's mission. Passionate about democratising quality education and building a platform that opens real doors for every learner.
         </p>
@@ -1494,11 +1500,12 @@ footer {
         <div class="founder-avatar">NA</div>
         <div class="founder-name">Naufil Ansari</div>
         <div class="founder-role">COO &amp; Co-Founder</div>
+		<div class="founder-role2">CA Inter, Author, University of Delhi '27, McKinsey Forward '26, IEP Ambassador '26</div>
         <p class="founder-bio">
           The architect of everything you see. Turns complex ideas into seamless digital experiences, ensuring SkillSphere's platform is fast, reliable, and beautiful.
         </p>
         <div class="founder-socials">
-          <a href="#" class="social-chip">in</a>
+          <a href="https://www.linkedin.com/in/naufila/" class="social-chip">In</a>
           <a href="#" class="social-chip">gh</a>
           <a href="#" class="social-chip">tw</a>
         </div>
@@ -1509,9 +1516,10 @@ footer {
         <div class="founder-avatar">MA</div>
         <div class="founder-name">Mishthi Arora</div>
         <div class="founder-role">CFO &amp; Co-Founder</div>
+		<div class="founder-role2">CA Finalist, Treasurer - NICASA Gurugram (26-27)</div>
         <p class="founder-bio">
           The growth engine behind SkillSphere. Builds community, drives outreach, and ensures every learner knows exactly what they stand to gain.
-        </p>
+		</p>
         <div class="founder-socials">
           <a href="#" class="social-chip">in</a>
           <a href="#" class="social-chip">tw</a>
@@ -1524,6 +1532,7 @@ footer {
         <div class="founder-avatar">CM</div>
         <div class="founder-name">Chetna Makkar</div>
         <div class="founder-role">Co-Founder</div>
+		<div class="founder-role2">CA Finalist, Cultural Secretary - NICASA Gurugram (26-27), University of Delhi</div>
         <p class="founder-bio">
           The operational backbone of SkillSphere. Ensures every course, every certificate, and every learner interaction runs without a hitch, every single day.
         </p>
@@ -1546,30 +1555,30 @@ footer {
       <div class="reveal">
         <span class="section-kicker">Our Courses</span>
         <h2 class="section-heading">Skills That Actually Pay Off</h2>
-        <p class="courses-meta">8 courses · All include a verified SkillSphere certificate</p>
+        <p class="courses-meta">Valuable Courses to Upskill Yourself &amp; Polish your CV · All include a verified SkillSphere Certificate</p>
       </div>
       <div class="reveal" style="text-align:right">
         <p style="font-size:.8rem;color:var(--muted);margin-bottom:.5rem">More courses launching soon</p>
-        <a href="mailto:hello@skillsphere.in" style="font-size:.8rem;color:var(--gold-l);font-weight:600">Suggest a course →</a>
+        <a href="mailto:skillsphere.work@gmail.com" style="font-size:.8rem;color:var(--gold-l);font-weight:600">Suggest a course →</a>
       </div>
     </div>
 
     <!-- Category filter tabs -->
     <div class="cat-tabs reveal">
       <button class="cat-tab active" onclick="filterCourses('all',this)">All Courses</button>
-      <button class="cat-tab" onclick="filterCourses('tech',this)">Technology</button>
-      <button class="cat-tab" onclick="filterCourses('design',this)">Design</button>
-      <button class="cat-tab" onclick="filterCourses('biz',this)">Business</button>
-      <button class="cat-tab" onclick="filterCourses('mkt',this)">Marketing</button>
+      <button class="cat-tab" onclick="filterCourses('beginner',this)">Beginner</button>
+      <button class="cat-tab" onclick="filterCourses('inter',this)">Intermediate</button>
+      <button class="cat-tab" onclick="filterCourses('hard',this)">Expert</button>
+      <button class="cat-tab" onclick="filterCourses('ai',this)">AI</button>
     </div>
 
     <div class="courses-grid" id="courses-grid">
 
       <!-- COURSE 1 -->
-      <div class="course-card reveal" data-cat="tech">
-        <div class="course-thumb th-tech">
+      <div class="course-card reveal" data-cat="beginner">
+        <div class="course-thumb th-beginner">
           <span class="thumb-emoji">💻</span>
-          <div class="course-badge badge-tech">Technology</div>
+          <div class="course-badge badge-beginner">Beginner</div>
         </div>
         <div class="course-body">
           <div class="course-title">Full Stack Web Development Bootcamp</div>
@@ -1587,10 +1596,10 @@ footer {
       </div>
 
       <!-- COURSE 2 -->
-      <div class="course-card reveal" data-cat="design">
-        <div class="course-thumb th-design">
+      <div class="course-card reveal" data-cat="inter">
+        <div class="course-thumb th-inter">
           <span class="thumb-emoji">🎨</span>
-          <div class="course-badge badge-design">Design</div>
+          <div class="course-badge badge-inter">Intermediate</div>
         </div>
         <div class="course-body">
           <div class="course-title">UI/UX Design: Wireframe to Prototype</div>
@@ -1608,10 +1617,11 @@ footer {
       </div>
 
       <!-- COURSE 3 -->
-      <div class="course-card reveal" data-cat="biz">
-        <div class="course-thumb th-biz">
+      <div class="course-card reveal" data-cat="beginner">
+        <div class="course-thumb th-beginner">
           <span class="thumb-emoji">🚀</span>
-          <div class="course-badge badge-free">Free</div>
+          <div class="course-badge badge-beginner">Beginner</div>
+		  <div class="course-badge badge-free" style="top:10px;right:10px;left:auto">Free</div>
         </div>
         <div class="course-body">
           <div class="course-title">Introduction to Entrepreneurship</div>
@@ -1629,10 +1639,11 @@ footer {
       </div>
 
       <!-- COURSE 4 -->
-      <div class="course-card reveal" data-cat="mkt">
-        <div class="course-thumb th-mkt">
+      <div class="course-card reveal" data-cat="hard">
+        <div class="course-thumb th-hard">
           <span class="thumb-emoji">📈</span>
-          <div class="course-badge badge-mkt">Marketing</div>
+          <div class="course-badge badge-hard">Expert</div>
+		  <div class="course-badge badge-new" style="top:10px;right:10px;left:auto">New</div>
         </div>
         <div class="course-body">
           <div class="course-title">Digital Marketing &amp; Growth Strategy</div>
@@ -1650,11 +1661,11 @@ footer {
       </div>
 
       <!-- COURSE 5 -->
-      <div class="course-card reveal" data-cat="tech">
+      <div class="course-card reveal" data-cat="ai">
         <div class="course-thumb th-ai">
           <span class="thumb-emoji">🤖</span>
-          <div class="course-badge badge-ai">Technology</div>
-          <div class="course-badge badge-new" style="top:10px;right:10px;left:auto">New</div>
+          <div class="course-badge badge-ai">AI</div>
+          
         </div>
         <div class="course-body">
           <div class="course-title">AI &amp; Prompt Engineering for Beginners</div>
@@ -1672,10 +1683,11 @@ footer {
       </div>
 
       <!-- COURSE 6 -->
-      <div class="course-card reveal" data-cat="tech">
-        <div class="course-thumb th-tech" style="background:linear-gradient(140deg,#050e1a,#0c2240,#1a3060)">
+      <div class="course-card reveal" data-cat="inter">
+        <div class="course-thumb th-inter">
           <span class="thumb-emoji">📊</span>
-          <div class="course-badge badge-tech">Technology</div>
+          <div class="course-badge badge-inter">Intermediate</div>
+		  
         </div>
         <div class="course-body">
           <div class="course-title">Data Analytics with Python &amp; Excel</div>
@@ -1693,10 +1705,10 @@ footer {
       </div>
 
       <!-- COURSE 7 -->
-      <div class="course-card reveal" data-cat="biz">
-        <div class="course-thumb th-finance">
+      <div class="course-card reveal" data-cat="hard">
+        <div class="course-thumb th-hard">
           <span class="thumb-emoji">💰</span>
-          <div class="course-badge badge-finance">Finance</div>
+          <div class="course-badge badge-hard">Expert</div>
         </div>
         <div class="course-body">
           <div class="course-title">Personal Finance &amp; Investment Basics</div>
@@ -1714,10 +1726,52 @@ footer {
       </div>
 
       <!-- COURSE 8 -->
-      <div class="course-card reveal" data-cat="mkt">
-        <div class="course-thumb th-comm" style="background:linear-gradient(140deg,#0a0515,#200a3a,#380f60)">
+      <div class="course-card reveal" data-cat="ai">
+        <div class="course-thumb th-ai">
           <span class="thumb-emoji">🎤</span>
-          <div class="course-badge badge-design">Communication</div>
+          <div class="course-badge badge-ai">AI</div>
+        </div>
+        <div class="course-body">
+          <div class="course-title">Public Speaking &amp; Professional Communication</div>
+          <div class="course-desc">Speak with authority, present with confidence, and communicate clearly — in meetings, interviews, and on stage.</div>
+          <div class="course-meta">
+            <span>⏱ 12 hrs</span>
+            <span>⭐ 4.9 (178)</span>
+            <span>🎓 Certificate</span>
+          </div>
+        </div>
+        <div class="course-footer">
+          <span class="course-price">₹699</span>
+          <button class="enroll-btn">Enroll Now</button>
+        </div>
+      </div>
+	  
+	  <!-- COURSE 9 -->
+      <div class="course-card reveal" data-cat="ai">
+        <div class="course-thumb th-ai">
+          <span class="thumb-emoji">🎤</span>
+          <div class="course-badge badge-ai">AI</div>
+        </div>
+        <div class="course-body">
+          <div class="course-title">Public Speaking &amp; Professional Communication</div>
+          <div class="course-desc">Speak with authority, present with confidence, and communicate clearly — in meetings, interviews, and on stage.</div>
+          <div class="course-meta">
+            <span>⏱ 12 hrs</span>
+            <span>⭐ 4.9 (178)</span>
+            <span>🎓 Certificate</span>
+          </div>
+        </div>
+        <div class="course-footer">
+          <span class="course-price">₹699</span>
+          <button class="enroll-btn">Enroll Now</button>
+        </div>
+      </div>
+	  
+	  <!-- COURSE 10 -->
+      <div class="course-card reveal" data-cat="beginner">
+        <div class="course-thumb th-beginner">
+          <span class="thumb-emoji">🎤</span>
+          <div class="course-badge badge-beginner">Beginner</div>
         </div>
         <div class="course-body">
           <div class="course-title">Public Speaking &amp; Professional Communication</div>
@@ -1737,7 +1791,7 @@ footer {
     </div><!-- /courses-grid -->
 
     <div class="courses-cta reveal">
-      <p>More courses in Graphic Design, Video Editing, Leadership & more — launching soon.</p>
+      <p>More courses in Finance, Accounting, Data Analysis & more — launching soon.</p>
       <button class="btn-ghost" onclick="document.querySelector('footer').scrollIntoView({behavior:'smooth'})">
         Get notified of new courses ↓
       </button>
@@ -1805,7 +1859,7 @@ footer {
   </div>
 
   <div class="footer-bottom">
-    <span>© 2025 SkillSphere. All rights reserved.</span>
+    <span>© 2026 SkillSphere. All rights reserved.</span>
     <span class="tagline">Empowering India's Next Generation of Professionals</span>
   </div>
 </footer>
