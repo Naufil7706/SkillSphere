@@ -1,0 +1,1308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>All Courses — SkillSphere</title>
+<meta name="description" content="Browse 50+ certified courses across Technology, Design, Business, Marketing and more. All courses include a verified SkillSphere certificate.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+
+/* ─────────────────────────────────────────────
+   RESET & ROOT
+───────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+:root {
+  --navy:   #05090f;
+  --navy-2: #0b1120;
+  --navy-3: #111a2e;
+  --navy-4: #192338;
+  --navy-5: #1e2c44;
+  --gold:   #c98b0a;
+  --gold-l: #e9a81c;
+  --gold-ll:#f5c84a;
+  --white:  #f4f1eb;
+  --off:    #ddd8ce;
+  --muted:  #6e80a0;
+  --muted-2:#3e4f6a;
+  --blue:   #1a68d6;
+  --green:  #0d9464;
+  --red:    #c03535;
+}
+
+body {
+  background: var(--navy);
+  color: var(--white);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; line-height: 1.15; }
+a { color: inherit; text-decoration: none; }
+button, input, select { font-family: 'DM Sans', sans-serif; }
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--navy); }
+::-webkit-scrollbar-thumb { background: var(--navy-5); border-radius: 10px; }
+
+/* ─────────────────────────────────────────────
+   NAVIGATION
+───────────────────────────────────────────── */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
+  height: 62px;
+  background: rgba(5, 9, 15, 0.92);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(201, 139, 10, 0.12);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.logo-sphere {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: conic-gradient(from 200deg at 40% 45%, #c98b0a 0%, #e9a81c 18%, #1a68d6 38%, #05090f 55%, #0b1120 68%, #c98b0a 85%, #e9a81c 100%);
+  box-shadow: 0 0 18px rgba(201,139,10,0.4);
+  flex-shrink: 0;
+}
+
+.nav-logo span em { font-style: normal; color: var(--gold-l); }
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.nav-links a { color: var(--muted); transition: color 0.2s; }
+.nav-links a:hover { color: var(--white); }
+
+.nav-right { display: flex; align-items: center; gap: 0.9rem; }
+
+.nav-avatar {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: rgba(201,139,10,0.15);
+  border: 1px solid rgba(201,139,10,0.3);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.68rem; font-weight: 700; color: var(--gold-ll);
+}
+
+.btn-nav {
+  background: var(--gold);
+  color: #07090e;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.52rem 1.1rem;
+  border-radius: 4px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-nav:hover { background: var(--gold-l); }
+
+/* Mobile menu toggle */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.nav-hamburger span {
+  display: block;
+  width: 22px; height: 2px;
+  background: var(--white);
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+/* ─────────────────────────────────────────────
+   HERO BANNER
+───────────────────────────────────────────── */
+.archive-hero {
+  background: var(--navy-2);
+  border-bottom: 1px solid rgba(201,139,10,0.1);
+  padding: 4.5rem 5% 3.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.archive-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(201,139,10,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,139,10,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+.archive-hero::after {
+  content: '';
+  position: absolute;
+  width: 700px; height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(201,139,10,0.07) 0%, transparent 65%);
+  top: -150px; left: 50%; transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.archive-hero-inner { position: relative; z-index: 1; }
+
+.hero-kicker {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 0.75rem;
+}
+.hero-kicker::before { content: '— '; }
+
+.archive-hero h1 {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+  color: var(--white);
+}
+
+.archive-hero h1 em { font-style: italic; color: var(--gold-l); }
+
+.archive-hero p {
+  font-size: 0.95rem;
+  color: var(--muted);
+  max-width: 520px;
+  margin: 0 auto 2rem;
+  line-height: 1.75;
+}
+
+/* Search bar */
+.search-wrap {
+  max-width: 580px;
+  margin: 0 auto;
+  display: flex;
+  background: var(--navy-3);
+  border: 1px solid rgba(201,139,10,0.22);
+  border-radius: 8px;
+  padding: 0.35rem 0.35rem 0.35rem 1.1rem;
+  gap: 0.4rem;
+  transition: border-color 0.2s;
+}
+.search-wrap:focus-within { border-color: rgba(201,139,10,0.45); }
+
+.search-wrap input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--white);
+  font-size: 0.9rem;
+  padding: 0.45rem 0;
+}
+.search-wrap input::placeholder { color: var(--muted-2); }
+
+.search-btn {
+  background: var(--gold);
+  color: #07090e;
+  border: none;
+  border-radius: 5px;
+  padding: 0.55rem 1.4rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+.search-btn:hover { background: var(--gold-l); }
+
+/* ─────────────────────────────────────────────
+   ARCHIVE LAYOUT
+───────────────────────────────────────────── */
+.archive-layout {
+  display: grid;
+  grid-template-columns: 248px 1fr;
+  gap: 2rem;
+  max-width: 1260px;
+  margin: 0 auto;
+  padding: 2.5rem 5% 5rem;
+  align-items: start;
+}
+
+/* ─────────────────────────────────────────────
+   FILTER SIDEBAR
+───────────────────────────────────────────── */
+.filter-panel {
+  background: var(--navy-2);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 10px;
+  padding: 1.5rem;
+  position: sticky;
+  top: 72px;
+}
+
+.filter-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.4rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.filter-panel-header h3 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.clear-btn {
+  font-size: 0.7rem;
+  color: var(--gold-l);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  padding: 0;
+  transition: opacity 0.2s;
+}
+.clear-btn:hover { opacity: 0.7; }
+
+.filter-group { margin-bottom: 1.4rem; }
+.filter-group:last-child { margin-bottom: 0; }
+
+.filter-group h4 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  margin-bottom: 0.75rem;
+}
+
+.filter-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.38rem 0;
+  cursor: pointer;
+}
+
+.filter-row:hover .filter-label { color: var(--white); }
+
+.filter-left {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.filter-check {
+  width: 15px; height: 15px;
+  accent-color: var(--gold);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.filter-label { font-size: 0.83rem; color: rgba(244,241,235,0.72); transition: color 0.2s; }
+
+.filter-count {
+  font-size: 0.66rem;
+  color: var(--muted);
+  background: rgba(255,255,255,0.07);
+  padding: 0.1rem 0.45rem;
+  border-radius: 20px;
+}
+
+/* Mobile filter toggle */
+.filter-toggle-bar {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--navy-3);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 7px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.2rem;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* ─────────────────────────────────────────────
+   MAIN CONTENT AREA
+───────────────────────────────────────────── */
+.courses-main { min-width: 0; }
+
+.sort-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.4rem;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.results-count {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.results-count strong { color: var(--white); }
+
+.sort-select {
+  background: var(--navy-3);
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 5px;
+  color: var(--white);
+  font-size: 0.82rem;
+  padding: 0.42rem 0.85rem;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+.sort-select:focus { border-color: rgba(201,139,10,0.35); }
+
+/* ─── COURSE GRID ─── */
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+}
+
+/* ─── COURSE CARD ─── */
+.course-card {
+  background: var(--navy-3);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+  display: flex;
+  flex-direction: column;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(201,139,10,0.25);
+  box-shadow: 0 14px 44px rgba(0,0,0,0.32);
+}
+
+/* card hidden state for filtering */
+.course-card.hidden { display: none; }
+
+.course-thumb {
+  height: 152px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* unique gradients */
+.th-1 { background: linear-gradient(140deg, #050f22, #0c2557, #1a3a80); }
+.th-2 { background: linear-gradient(140deg, #180a02, #4a2208, #7a3a0a); }
+.th-3 { background: linear-gradient(140deg, #120523, #2d0d52, #4a1580); }
+.th-4 { background: linear-gradient(140deg, #050e1a, #0c2040, #1a4060); }
+.th-5 { background: linear-gradient(140deg, #080f05, #1a3510, #2a5018); }
+.th-6 { background: linear-gradient(140deg, #060512, #1a1040, #2a1a70); }
+.th-7 { background: linear-gradient(140deg, #0f0505, #3a0f0f, #5a1515); }
+.th-8 { background: linear-gradient(140deg, #080520, #1a0a40, #300f70); }
+
+/* subtle grid on thumbs */
+.course-thumb::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.thumb-emoji { font-size: 2.8rem; position: relative; z-index: 1; }
+
+/* badges */
+.badge {
+  display: inline-block;
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  padding: 0.2rem 0.55rem;
+  border-radius: 3px;
+}
+.badge-tech   { background: rgba(26,104,214,0.25); color: #7ab8ff; border: 1px solid rgba(26,104,214,0.32); }
+.badge-biz    { background: rgba(201,139,10,0.2);  color: var(--gold-ll); border: 1px solid rgba(201,139,10,0.35); }
+.badge-design { background: rgba(150,40,200,0.22); color: #d47aff; border: 1px solid rgba(150,40,200,0.32); }
+.badge-mkt    { background: rgba(13,148,100,0.2);  color: #4de6b0; border: 1px solid rgba(13,148,100,0.32); }
+.badge-fin    { background: rgba(192,53,53,0.2);   color: #ff9090; border: 1px solid rgba(192,53,53,0.3); }
+.badge-comm   { background: rgba(150,40,200,0.2);  color: #d47aff; border: 1px solid rgba(150,40,200,0.3); }
+.badge-free   { background: rgba(13,148,100,0.22); color: #4de6b0; border: 1px solid rgba(13,148,100,0.32); }
+.badge-new    { background: rgba(192,53,53,0.22);  color: #ff8a8a; border: 1px solid rgba(192,53,53,0.3); }
+.badge-hot    { background: rgba(192,53,53,0.22);  color: #ff8a8a; border: 1px solid rgba(192,53,53,0.3); }
+
+.card-badge-pos {
+  position: absolute;
+  top: 10px; left: 10px;
+  z-index: 2;
+}
+
+.card-badge-pos-r {
+  position: absolute;
+  top: 10px; right: 10px;
+  z-index: 2;
+}
+
+.course-body {
+  padding: 1.1rem 1.2rem 0;
+  flex: 1;
+}
+
+.course-title {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.45;
+  margin-bottom: 0.35rem;
+  color: var(--white);
+}
+
+.course-instructor {
+  font-size: 0.74rem;
+  color: var(--muted);
+  margin-bottom: 0.55rem;
+}
+
+.course-meta-row {
+  display: flex;
+  gap: 0.85rem;
+  font-size: 0.7rem;
+  color: var(--muted-2);
+  flex-wrap: wrap;
+}
+
+.course-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1.2rem;
+  margin-top: 0.85rem;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.price-wrap { display: flex; align-items: baseline; gap: 0.4rem; }
+
+.price-main {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--gold-ll);
+}
+
+.price-free {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #4de6b0;
+}
+
+.price-orig {
+  font-size: 0.72rem;
+  text-decoration: line-through;
+  color: var(--muted);
+}
+
+.enroll-btn {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--gold);
+  border: 1px solid rgba(201,139,10,0.32);
+  background: transparent;
+  padding: 0.32rem 0.78rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  letter-spacing: 0.02em;
+}
+.enroll-btn:hover { background: var(--gold); color: #07090e; }
+
+/* ─── NO RESULTS ─── */
+.no-results {
+  display: none;
+  text-align: center;
+  padding: 4rem 2rem;
+  grid-column: 1 / -1;
+}
+.no-results.show { display: block; }
+.no-results h3 { font-size: 1.3rem; margin-bottom: 0.5rem; color: var(--white); }
+.no-results p  { font-size: 0.85rem; color: var(--muted); }
+
+/* ─── PAGINATION ─── */
+.pagination {
+  display: flex;
+  gap: 0.4rem;
+  margin-top: 2.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.pag-btn {
+  width: 36px; height: 36px;
+  border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.82rem;
+  border: 1px solid rgba(255,255,255,0.08);
+  cursor: pointer;
+  transition: all 0.2s;
+  background: var(--navy-3);
+  color: var(--muted);
+  font-family: 'DM Sans', sans-serif;
+}
+.pag-btn.active  { background: var(--gold); color: #07090e; border-color: var(--gold); font-weight: 700; }
+.pag-btn:hover:not(.active) { border-color: rgba(201,139,10,0.3); color: var(--gold-ll); }
+
+/* ─────────────────────────────────────────────
+   FOOTER
+───────────────────────────────────────────── */
+footer {
+  background: var(--navy);
+  border-top: 1px solid rgba(201,139,10,0.08);
+  padding: 2.5rem 5%;
+}
+
+.footer-inner {
+  max-width: 1260px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-brand { display: flex; align-items: center; gap: 9px; font-size: 0.95rem; font-weight: 600; }
+.footer-brand em { font-style: normal; color: var(--gold-l); }
+
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.78rem;
+  color: var(--muted);
+  flex-wrap: wrap;
+}
+.footer-links a { transition: color 0.2s; }
+.footer-links a:hover { color: var(--gold-ll); }
+
+.footer-copy { font-size: 0.72rem; color: var(--muted); }
+
+/* ─────────────────────────────────────────────
+   MOBILE MENU
+───────────────────────────────────────────── */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 66px; left: 0; right: 0;
+  background: rgba(5,9,15,0.98);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(201,139,10,0.12);
+  padding: 1.5rem 5%;
+  flex-direction: column;
+  gap: 1.2rem;
+  z-index: 999;
+}
+
+.mobile-menu.open { display: flex; }
+
+.mobile-menu a {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--off);
+  padding: 0.4rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+/* ─────────────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────────────── */
+@media (max-width: 1050px) {
+  .courses-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 820px) {
+  .archive-layout { grid-template-columns: 1fr; }
+  .filter-panel { position: static; display: none; }
+  .filter-panel.mobile-open { display: block; }
+  .filter-toggle-bar { display: flex; }
+  nav .nav-links, nav .nav-cta { display: none; }
+  .nav-hamburger { display: flex; }
+}
+
+@media (max-width: 540px) {
+  .courses-grid { grid-template-columns: 1fr; }
+  .sort-row { flex-direction: column; align-items: flex-start; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ═══════════ NAV ═══════════ -->
+<nav id="main-nav">
+  <div class="nav-logo">
+    <div class="logo-sphere"></div>
+    <span>Skill<em>Sphere</em></span>
+  </div>
+  <div class="nav-links">
+	<a href="https://naufil7706.github.io/SkillSphere/home">Home</a>
+	<a href="https://naufil7706.github.io/SkillSphere/home/#about">About</a>
+	<a href="https://naufil7706.github.io/SkillSphere/home/#founders">Founders</a>
+  </div>
+  
+  <div class="nav-hamburger" onclick="toggleMenu()" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="https://naufil7706.github.io/SkillSphere/home/" onclick="toggleMenu()">Home</a>
+  <a href="https://naufil7706.github.io/SkillSphere/home/#about"    onclick="toggleMenu()">About SkillSphere</a>
+  <a href="https://naufil7706.github.io/SkillSphere/home/#founders" onclick="toggleMenu()">About the Founders</a>
+  <a href="https://naufil7706.github.io/SkillSphere/courses"  onclick="toggleMenu()">Our Courses</a>
+</div>
+
+<!-- ═══════════ HERO ═══════════ -->
+<div class="archive-hero">
+  <div class="archive-hero-inner">
+    <span class="hero-kicker">All Courses</span>
+    <h1>Expand Your <em>Horizons</em></h1>
+    <p>8 certified courses across Technology, Design, Business, Marketing and more — all including a verified SkillSphere certificate.</p>
+
+    <div class="search-wrap">
+      <input
+        type="text"
+        id="search-input"
+        placeholder="Search courses, skills, topics..."
+        oninput="applyFilters()"
+        autocomplete="off"
+      >
+      <button class="search-btn" onclick="applyFilters()">Search</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════ ARCHIVE LAYOUT ═══════════ -->
+<div class="archive-layout">
+
+  <!-- ── FILTER SIDEBAR ── -->
+  <aside>
+    <!-- Mobile toggle -->
+    <div class="filter-toggle-bar" onclick="toggleFilters()">
+      <span>🔧 Filters</span>
+      <span id="filter-toggle-icon">▼</span>
+    </div>
+
+    <div class="filter-panel" id="filter-panel">
+      <div class="filter-panel-header">
+        <h3>Filter Courses</h3>
+        <button class="clear-btn" onclick="clearFilters()">Clear all</button>
+      </div>
+
+      <!-- Category -->
+      <div class="filter-group">
+        <h4>Category</h4>
+        <label class="filter-row">
+          <div class="filter-left">
+            <input type="checkbox" class="filter-check cat-filter" value="tech" onchange="applyFilters()">
+            <span class="filter-label">Technology</span>
+          </div>
+          <span class="filter-count">3</span>
+        </label>
+        <label class="filter-row">
+          <div class="filter-left">
+            <input type="checkbox" class="filter-check cat-filter" value="design" onchange="applyFilters()">
+            <span class="filter-label">Design</span>
+          </div>
+          <span class="filter-count">1</span>
+        </label>
+        <label class="filter-row">
+          <div class="filter-left">
+            <input type="checkbox" class="filter-check cat-filter" value="biz" onchange="applyFilters()">
+            <span class="filter-label">Business</span>
+          </div>
+          <span class="filter-count">1</span>
+        </label>
+        <label class="filter-row">
+          <div class="filter-left">
+            <input type="checkbox" class="filter-check cat-filter" value="mkt" onchange="applyFilters()">
+            <span class="filter-label">Marketing</span>
+          </div>
+          <span class="filter-count">2</span>
+        </label>
+        <label class="filter-row">
+          <div class="filter-left">
+            <input type="checkbox" class="filter-check cat-filter" value="fin" onchange="applyFilters()">
+            <span class="filter-label">Finance</span>
+          </div>
+          <span class="filter-count">1</span>
+        </label>
+      </div>
+
+      <!-- Level -->
+      <div class="filter-group">
+        <h4>Level</h4>
+        <label class="filter-row">
+          <div class="filter-left">
+            <input type="checkbox" class="filter-check lvl-filter" value="beginner" onchange="applyFilters()">
+            <span class="filter-label">Beginner</span>
+          </div>
+        </label>
+        <label class="filter-row">
+          <div class="filter-left">
+            <input type="checkbox" class="filter-check lvl-filter" value="intermediate" onchange="applyFilters()">
+            <span class="filter-label">Intermediate</span>
+          </div>
+        </label>
+        <label class="filter-row">
+          <div class="filter-left">
+            <input type="checkbox" class="filter-check lvl-filter" value="all-levels" onchange="applyFilters()">
+            <span class="filter-label">All Levels</span>
+          </div>
+        </label>
+      </div>
+
+      <!-- Price -->
+      <div class="filter-group">
+        <h4>Price</h4>
+        <label class="filter-row">
+          <div class="filter-left">
+            <input type="checkbox" class="filter-check price-filter" value="free" onchange="applyFilters()">
+            <span class="filter-label">Free</span>
+          </div>
+        </label>
+        <label class="filter-row">
+          <div class="filter-left">
+            <input type="checkbox" class="filter-check price-filter" value="under500" onchange="applyFilters()">
+            <span class="filter-label">Under ₹500</span>
+          </div>
+        </label>
+        <label class="filter-row">
+          <div class="filter-left">
+            <input type="checkbox" class="filter-check price-filter" value="500to1500" onchange="applyFilters()">
+            <span class="filter-label">₹500 – ₹1,500</span>
+          </div>
+        </label>
+        <label class="filter-row">
+          <div class="filter-left">
+            <input type="checkbox" class="filter-check price-filter" value="above1500" onchange="applyFilters()">
+            <span class="filter-label">Above ₹1,500</span>
+          </div>
+        </label>
+      </div>
+
+      <!-- Duration -->
+      <div class="filter-group">
+        <h4>Duration</h4>
+        <label class="filter-row">
+          <div class="filter-left">
+            <input type="checkbox" class="filter-check dur-filter" value="short" onchange="applyFilters()">
+            <span class="filter-label">Under 15 hrs</span>
+          </div>
+        </label>
+        <label class="filter-row">
+          <div class="filter-left">
+            <input type="checkbox" class="filter-check dur-filter" value="medium" onchange="applyFilters()">
+            <span class="filter-label">15 – 35 hrs</span>
+          </div>
+        </label>
+        <label class="filter-row">
+          <div class="filter-left">
+            <input type="checkbox" class="filter-check dur-filter" value="long" onchange="applyFilters()">
+            <span class="filter-label">35+ hrs</span>
+          </div>
+        </label>
+      </div>
+
+      <!-- Rating -->
+      <div class="filter-group">
+        <h4>Minimum Rating</h4>
+        <label class="filter-row">
+          <div class="filter-left">
+            <input type="checkbox" class="filter-check rat-filter" value="4.8" onchange="applyFilters()">
+            <span class="filter-label">⭐ 4.8 &amp; above</span>
+          </div>
+        </label>
+        <label class="filter-row">
+          <div class="filter-left">
+            <input type="checkbox" class="filter-check rat-filter" value="4.5" onchange="applyFilters()">
+            <span class="filter-label">⭐ 4.5 &amp; above</span>
+          </div>
+        </label>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ── MAIN ── -->
+  <main class="courses-main">
+
+    <div class="sort-row">
+      <span class="results-count">Showing <strong id="count-label">8</strong> courses</span>
+      <select class="sort-select" onchange="applyFilters()">
+        <option value="popular">Sort: Most Popular</option>
+        <option value="newest">Newest First</option>
+        <option value="price-asc">Price: Low to High</option>
+        <option value="price-desc">Price: High to Low</option>
+        <option value="rating">Highest Rated</option>
+      </select>
+    </div>
+
+    <!-- GRID -->
+    <div class="courses-grid" id="courses-grid">
+
+      <!-- ── COURSE 1 ── -->
+      <div class="course-card"
+        data-cat="tech"
+        data-level="all-levels"
+        data-price="1499"
+        data-rating="4.9"
+        data-hours="48"
+        data-title="Full Stack Web Development Bootcamp"
+        data-popular="1312">
+        <div class="course-thumb th-1">
+          <span class="thumb-emoji">💻</span>
+          <div class="card-badge-pos"><span class="badge badge-tech">Technology</span></div>
+          <div class="card-badge-pos-r"><span class="badge badge-hot">Bestseller</span></div>
+        </div>
+        <div class="course-body">
+          <div class="course-title">Full Stack Web Development Bootcamp</div>
+          <div class="course-instructor">by Aryan Mehta · SkillSphere</div>
+          <div class="course-meta-row">
+            <span>⭐ 4.9 (312)</span>
+            <span>⏱ 48 hrs</span>
+            <span>📶 All levels</span>
+            <span>🎓 Certificate</span>
+          </div>
+        </div>
+        <div class="course-footer">
+          <div class="price-wrap">
+            <span class="price-main">₹1,499</span>
+            <span class="price-orig">₹2,999</span>
+          </div>
+          <button class="enroll-btn">Enroll Now</button>
+        </div>
+      </div>
+
+      <!-- ── COURSE 2 ── -->
+      <div class="course-card"
+        data-cat="design"
+        data-level="beginner"
+        data-price="1199"
+        data-rating="4.9"
+        data-hours="28"
+        data-title="UI/UX Design Wireframe to Prototype"
+        data-popular="1241">
+        <div class="course-thumb th-3">
+          <span class="thumb-emoji">🎨</span>
+          <div class="card-badge-pos"><span class="badge badge-design">Design</span></div>
+        </div>
+        <div class="course-body">
+          <div class="course-title">UI/UX Design: Wireframe to Prototype</div>
+          <div class="course-instructor">by Neha Joshi · SkillSphere</div>
+          <div class="course-meta-row">
+            <span>⭐ 4.9 (241)</span>
+            <span>⏱ 28 hrs</span>
+            <span>📶 Beginner</span>
+            <span>🎓 Certificate</span>
+          </div>
+        </div>
+        <div class="course-footer">
+          <div class="price-wrap">
+            <span class="price-main">₹1,199</span>
+            <span class="price-orig">₹2,499</span>
+          </div>
+          <button class="enroll-btn">Enroll Now</button>
+        </div>
+      </div>
+
+      <!-- ── COURSE 3 ── -->
+      <div class="course-card"
+        data-cat="biz"
+        data-level="beginner"
+        data-price="0"
+        data-rating="4.8"
+        data-hours="8"
+        data-title="Introduction to Entrepreneurship"
+        data-popular="890">
+        <div class="course-thumb th-5">
+          <span class="thumb-emoji">🚀</span>
+          <div class="card-badge-pos"><span class="badge badge-free">Free</span></div>
+        </div>
+        <div class="course-body">
+          <div class="course-title">Introduction to Entrepreneurship</div>
+          <div class="course-instructor">by SkillSphere Founders</div>
+          <div class="course-meta-row">
+            <span>⭐ 4.8 (890)</span>
+            <span>⏱ 8 hrs</span>
+            <span>📶 Beginner</span>
+            <span>🎓 Certificate</span>
+          </div>
+        </div>
+        <div class="course-footer">
+          <div class="price-wrap">
+            <span class="price-free">Free</span>
+          </div>
+          <button class="enroll-btn">Enroll Now</button>
+        </div>
+      </div>
+
+      <!-- ── COURSE 4 ── -->
+      <div class="course-card"
+        data-cat="mkt"
+        data-level="intermediate"
+        data-price="999"
+        data-rating="4.8"
+        data-hours="32"
+        data-title="Digital Marketing and Growth Strategy"
+        data-popular="1198">
+        <div class="course-thumb th-2">
+          <span class="thumb-emoji">📈</span>
+          <div class="card-badge-pos"><span class="badge badge-mkt">Marketing</span></div>
+        </div>
+        <div class="course-body">
+          <div class="course-title">Digital Marketing &amp; Growth Strategy</div>
+          <div class="course-instructor">by Priya Sharma · SkillSphere</div>
+          <div class="course-meta-row">
+            <span>⭐ 4.8 (198)</span>
+            <span>⏱ 32 hrs</span>
+            <span>📶 Intermediate</span>
+            <span>🎓 Certificate</span>
+          </div>
+        </div>
+        <div class="course-footer">
+          <div class="price-wrap">
+            <span class="price-main">₹999</span>
+            <span class="price-orig">₹1,999</span>
+          </div>
+          <button class="enroll-btn">Enroll Now</button>
+        </div>
+      </div>
+
+      <!-- ── COURSE 5 ── -->
+      <div class="course-card"
+        data-cat="tech"
+        data-level="beginner"
+        data-price="799"
+        data-rating="5.0"
+        data-hours="18"
+        data-title="AI and Prompt Engineering for Beginners"
+        data-popular="1044">
+        <div class="course-thumb th-4">
+          <span class="thumb-emoji">🤖</span>
+          <div class="card-badge-pos"><span class="badge badge-tech">Technology</span></div>
+          <div class="card-badge-pos-r"><span class="badge badge-new">New</span></div>
+        </div>
+        <div class="course-body">
+          <div class="course-title">AI &amp; Prompt Engineering for Beginners</div>
+          <div class="course-instructor">by Dev Kapoor · SkillSphere</div>
+          <div class="course-meta-row">
+            <span>⭐ 5.0 (44)</span>
+            <span>⏱ 18 hrs</span>
+            <span>📶 Beginner</span>
+            <span>🎓 Certificate</span>
+          </div>
+        </div>
+        <div class="course-footer">
+          <div class="price-wrap">
+            <span class="price-main">₹799</span>
+          </div>
+          <button class="enroll-btn">Enroll Now</button>
+        </div>
+      </div>
+
+      <!-- ── COURSE 6 ── -->
+      <div class="course-card"
+        data-cat="tech"
+        data-level="intermediate"
+        data-price="1299"
+        data-rating="4.7"
+        data-hours="36"
+        data-title="Data Analytics with Python and Excel"
+        data-popular="1156">
+        <div class="course-thumb th-4" style="background:linear-gradient(140deg,#050e1a,#0c2040,#1a3060)">
+          <span class="thumb-emoji">📊</span>
+          <div class="card-badge-pos"><span class="badge badge-tech">Technology</span></div>
+        </div>
+        <div class="course-body">
+          <div class="course-title">Data Analytics with Python &amp; Excel</div>
+          <div class="course-instructor">by Rohan Das · SkillSphere</div>
+          <div class="course-meta-row">
+            <span>⭐ 4.7 (156)</span>
+            <span>⏱ 36 hrs</span>
+            <span>📶 Intermediate</span>
+            <span>🎓 Certificate</span>
+          </div>
+        </div>
+        <div class="course-footer">
+          <div class="price-wrap">
+            <span class="price-main">₹1,299</span>
+            <span class="price-orig">₹2,599</span>
+          </div>
+          <button class="enroll-btn">Enroll Now</button>
+        </div>
+      </div>
+
+      <!-- ── COURSE 7 ── -->
+      <div class="course-card"
+        data-cat="fin"
+        data-level="beginner"
+        data-price="599"
+        data-rating="4.8"
+        data-hours="14"
+        data-title="Personal Finance and Investment Basics"
+        data-popular="1203">
+        <div class="course-thumb th-7">
+          <span class="thumb-emoji">💰</span>
+          <div class="card-badge-pos"><span class="badge badge-fin">Finance</span></div>
+        </div>
+        <div class="course-body">
+          <div class="course-title">Personal Finance &amp; Investment Basics</div>
+          <div class="course-instructor">by Ankita Rao · SkillSphere</div>
+          <div class="course-meta-row">
+            <span>⭐ 4.8 (203)</span>
+            <span>⏱ 14 hrs</span>
+            <span>📶 Beginner</span>
+            <span>🎓 Certificate</span>
+          </div>
+        </div>
+        <div class="course-footer">
+          <div class="price-wrap">
+            <span class="price-main">₹599</span>
+          </div>
+          <button class="enroll-btn">Enroll Now</button>
+        </div>
+      </div>
+
+      <!-- ── COURSE 8 ── -->
+      <div class="course-card"
+        data-cat="mkt"
+        data-level="beginner"
+        data-price="699"
+        data-rating="4.9"
+        data-hours="12"
+        data-title="Public Speaking and Professional Communication"
+        data-popular="1178">
+        <div class="course-thumb th-8">
+          <span class="thumb-emoji">🎤</span>
+          <div class="card-badge-pos"><span class="badge badge-comm">Communication</span></div>
+        </div>
+        <div class="course-body">
+          <div class="course-title">Public Speaking &amp; Professional Communication</div>
+          <div class="course-instructor">by Vivek Nair · SkillSphere</div>
+          <div class="course-meta-row">
+            <span>⭐ 4.9 (178)</span>
+            <span>⏱ 12 hrs</span>
+            <span>📶 Beginner</span>
+            <span>🎓 Certificate</span>
+          </div>
+        </div>
+        <div class="course-footer">
+          <div class="price-wrap">
+            <span class="price-main">₹699</span>
+          </div>
+          <button class="enroll-btn">Enroll Now</button>
+        </div>
+      </div>
+
+    </div><!-- /courses-grid -->
+
+    <!-- No results message -->
+    <div class="no-results" id="no-results">
+      <h3>No courses found</h3>
+      <p>Try adjusting your filters or search term.</p>
+    </div>
+
+    <!-- Pagination (shown only when all filters clear) -->
+    <div class="pagination" id="pagination">
+      <div class="pag-btn active">1</div>
+      <div class="pag-btn">2</div>
+      <div class="pag-btn">3</div>
+      <div class="pag-btn">›</div>
+    </div>
+
+  </main>
+</div><!-- /archive-layout -->
+
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo-sphere" style="width:26px;height:26px"></div>
+      <span>Skill<em>Sphere</em></span>
+    </div>
+    <div class="footer-links">
+      <a href="#">All Courses</a>
+      <a href="#">About Us</a>
+      <a href="#">Verify Certificate</a>
+      <a href="#">Contact</a>
+      <a href="#">Privacy Policy</a>
+    </div>
+    <span class="footer-copy">© 2025 SkillSphere. All rights reserved.</span>
+  </div>
+</footer>
+
+
+<!-- ═══════════ SCRIPTS ═══════════ -->
+<script>
+const cards = Array.from(document.querySelectorAll('.course-card'));
+const grid  = document.getElementById('courses-grid');
+
+/* ── Mobile menu ── */
+function toggleMenu() {
+  const m = document.getElementById('mobile-menu');
+  m.classList.toggle('open');
+}
+
+/* ── Mobile filters ── */
+function toggleFilters() {
+  const panel = document.getElementById('filter-panel');
+  const icon  = document.getElementById('filter-toggle-icon');
+  panel.classList.toggle('mobile-open');
+  icon.textContent = panel.classList.contains('mobile-open') ? '▲' : '▼';
+}
+
+/* ── Clear all filters ── */
+function clearFilters() {
+  document.querySelectorAll('.filter-check').forEach(cb => cb.checked = false);
+  document.getElementById('search-input').value = '';
+  document.querySelector('.sort-select').value = 'popular';
+  applyFilters();
+}
+
+/* ── Main filter + sort + search ── */
+function applyFilters() {
+  const query      = document.getElementById('search-input').value.toLowerCase().trim();
+  const sortVal    = document.querySelector('.sort-select').value;
+  const catChecked = [...document.querySelectorAll('.cat-filter:checked')].map(c => c.value);
+  const lvlChecked = [...document.querySelectorAll('.lvl-filter:checked')].map(c => c.value);
+  const priceChecked = [...document.querySelectorAll('.price-filter:checked')].map(c => c.value);
+  const durChecked = [...document.querySelectorAll('.dur-filter:checked')].map(c => c.value);
+  const ratChecked = [...document.querySelectorAll('.rat-filter:checked')].map(c => parseFloat(c.value));
+
+  // Filter
+  let visible = cards.filter(card => {
+    const cat    = card.dataset.cat;
+    const level  = card.dataset.level;
+    const price  = parseInt(card.dataset.price);
+    const rating = parseFloat(card.dataset.rating);
+    const hours  = parseInt(card.dataset.hours);
+    const title  = card.dataset.title.toLowerCase();
+
+    if (query && !title.includes(query)) return false;
+    if (catChecked.length && !catChecked.includes(cat)) return false;
+    if (lvlChecked.length && !lvlChecked.includes(level)) return false;
+
+    if (priceChecked.length) {
+      const priceMatch = priceChecked.some(p => {
+        if (p === 'free')      return price === 0;
+        if (p === 'under500')  return price > 0 && price < 500;
+        if (p === '500to1500') return price >= 500 && price <= 1500;
+        if (p === 'above1500') return price > 1500;
+        return false;
+      });
+      if (!priceMatch) return false;
+    }
+
+    if (durChecked.length) {
+      const durMatch = durChecked.some(d => {
+        if (d === 'short')  return hours < 15;
+        if (d === 'medium') return hours >= 15 && hours <= 35;
+        if (d === 'long')   return hours > 35;
+        return false;
+      });
+      if (!durMatch) return false;
+    }
+
+    if (ratChecked.length) {
+      const minRat = Math.min(...ratChecked);
+      if (rating < minRat) return false;
+    }
+
+    return true;
+  });
+
+  // Sort
+  visible.sort((a, b) => {
+    if (sortVal === 'popular')    return parseInt(b.dataset.popular) - parseInt(a.dataset.popular);
+    if (sortVal === 'newest')     return b.dataset.title.localeCompare(a.dataset.title);
+    if (sortVal === 'price-asc')  return parseInt(a.dataset.price) - parseInt(b.dataset.price);
+    if (sortVal === 'price-desc') return parseInt(b.dataset.price) - parseInt(a.dataset.price);
+    if (sortVal === 'rating')     return parseFloat(b.dataset.rating) - parseFloat(a.dataset.rating);
+    return 0;
+  });
+
+  // Show / hide
+  const hiddenSet = new Set(cards.filter(c => !visible.includes(c)));
+  cards.forEach(c => c.classList.toggle('hidden', hiddenSet.has(c)));
+
+  // Re-order DOM
+  visible.forEach(c => grid.appendChild(c));
+
+  // Count
+  document.getElementById('count-label').textContent = visible.length;
+
+  // No results
+  document.getElementById('no-results').classList.toggle('show', visible.length === 0);
+
+  // Pagination — hide when filtering/searching
+  const isFiltering = query || catChecked.length || lvlChecked.length ||
+                      priceChecked.length || durChecked.length || ratChecked.length;
+  document.getElementById('pagination').style.display = isFiltering ? 'none' : '';
+}
+
+/* ── Enroll buttons ── */
+document.querySelectorAll('.enroll-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    alert('Enrollment coming soon!\n\nReach out at hello@skillsphere.in to get early access.');
+  });
+});
+
+/* ── Nav scroll shadow ── */
+window.addEventListener('scroll', () => {
+  document.getElementById('main-nav').style.boxShadow =
+    window.scrollY > 10 ? '0 2px 20px rgba(0,0,0,0.4)' : 'none';
+});
+</script>
+
+</body>
+</html>
